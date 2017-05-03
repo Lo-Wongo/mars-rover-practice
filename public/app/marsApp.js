@@ -1,0 +1,1 @@
+angular.module('marsApp', ['ui.router']);
