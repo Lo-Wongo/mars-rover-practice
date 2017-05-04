@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var deploy = require('gulp-gh-pages')
 var concat = require('gulp-concat');
 var annotate = require('gulp-ng-annotate');
 var sass = require('gulp-sass');
@@ -9,6 +10,11 @@ var paths = {
     viewsSource: ['public/**/*.html'],
     icoSource: ['public/**/*.ico']
 };
+
+gulp.task('deploy', function () {
+    return gulp.src('./dist/**.*')
+    .pipe(deploy())
+});
 
 gulp.task('js', function () {
     gulp.src(paths.jsSource)
