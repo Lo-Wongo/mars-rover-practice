@@ -4,7 +4,7 @@
   margin: 0; }
 
 body {
-  background: #FFEECC; }
+  background: #FFDEAA; }
 
 .main_header {
   background-color: #AA3300;
@@ -14,6 +14,31 @@ body {
   box-shadow: 0 2px 3px 0 #220000;
   margin-bottom: 10px; }
 
+.logo {
+  height: 100%;
+  width: 20%;
+  background-color: #CC8866;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 2s ease;
+  text-align: center;
+  cursor: context-menu; }
+  .logo span {
+    transition: transform 2s ease;
+    transform: translateX(-220px); }
+  .logo img {
+    height: 95%; }
+  .logo:hover img {
+    transition: transform 1.5s ease;
+    transform: translateX(-220px); }
+  .logo:hover span {
+    transition: transform 1s ease;
+    transform: translateX(0px); }
+
 .nav_links {
   width: 100%;
   display: flex;
@@ -22,24 +47,55 @@ body {
   font-weight: bold;
   color: white;
   cursor: context-menu; }
-  .nav_links span:hover {
-    border: 1px solid; }
+  .nav_links span {
+    border: 1px solid;
+    padding: 3px;
+    border-radius: 5px;
+    border-color: #AA3300; }
+    .nav_links span:hover {
+      border-color: white; }
+
+.main_content {
+  display: flex;
+  justify-content: center;
+  width: 100%; }
+
+div .ng-scope {
+  width: 100%; }
 
 .content {
+  margin: 0;
+  padding-top: 15px;
   width: 100%;
+  min-width: 50px;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap; }
+  justify-content: center; }
 
 .img_cntnr {
-  width: 90%;
-  margin: 5px;
+  width: 80%;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap; }
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 5px; }
 
 .rvr_img {
   width: auto;
-  max-width: 300px;
-  height: auto;
-  max-height: 300px; }
+  max-width: 100%;
+  max-height: 300px;
+  height: auto; }
+
+footer {
+  text-align: center;
+  color: #AA3300;
+  font-weight: bold;
+  margin: 10px; }
+  footer hr {
+    margin: 10px; }
+
+.weather_info {
+  display: flex;
+  align-items: center; }
+
+.weather_graphic {
+  width: 100%;
+  margin-left: 20px; }
