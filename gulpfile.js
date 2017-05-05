@@ -3,10 +3,11 @@ var deploy = require('gulp-gh-pages')
 var concat = require('gulp-concat');
 var annotate = require('gulp-ng-annotate');
 var sass = require('gulp-sass');
+var babel = require('gulp-babel');
 
 var paths = {
     jsSource: ['public/app/**/*.js'],
-    cssSource: ['public/app/**/*.sass'],
+    cssSource: ['public/app/**/*.scss'],
     viewsSource: ['public/**/*.html'],
     icoSource: ['public/**/*.ico']
 };
@@ -19,6 +20,9 @@ gulp.task('deploy', function () {
 gulp.task('js', function () {
     gulp.src(paths.jsSource)
         .pipe(annotate())
+        .pipe(babel({
+            presets: ['es2015']
+        }))
         .pipe(concat('bundle.js'))
         .pipe(gulp.dest('./dist'));     
 });
