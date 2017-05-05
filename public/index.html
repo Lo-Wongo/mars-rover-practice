@@ -6,34 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="bundle.css" rel="stylesheet">
-    <!--<link href="icons/favicon.ico" rel="icon" type="image/x-icon" />-->
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
 </head>
 
 <body ng-controller="marsCtrl">
-    <!--<header-dir></header-dir>-->
-    <header class="main_header">
-        <ul class="nav_links">
-            <div ui-sref="home"><span>Home</span></div>
-            <div ui-sref="curiosity"><span>Curiosity</span></div>
-            <div ui-sref="opportunity"><span>Opportunity</span></div>
-            <div ui-sref="weather"><span>Weather</span></div>
-        </ul>
-    </header>
 
-    <ui-view></ui-view>
-    <mars-dir></mars-dir>
-    <!--<div class="content">
-        <div>
-            <div class="img_cntnr" ng-repeat="photo in photos">
-                <h3>{{photo.rover.name}}: {{photo.earth_date}}</h3>
-                <img class="rvr_img" ng-src="{{photo.img_src}}" alt="">
-                <hr>
-            </div>
+    <header-dir></header-dir>
+    
+    <div class="main_content">
+        <ui-view></ui-view>
+    </div>
 
-        </div>
-    </div>-->
-
+    <footer>
+        <hr>
+        Website by Lloyd Grubham &copy;2017
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>

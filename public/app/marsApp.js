@@ -16,7 +16,7 @@ angular.module('marsApp', ['ui.router'])
     })
     .state('weather',{
         url: '/weather',
-        template: '<h2> The current weather on mars:</h2>'
+        templateUrl: './app/routes/weather/weatherTemplate.html'
     });
 
 

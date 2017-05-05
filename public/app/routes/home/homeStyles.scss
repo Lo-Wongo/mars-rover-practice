@@ -1,5 +1,6 @@
 $marsRed: #AA3300;
-$bgcolor: #FFEECC;
+$bgcolor: #FFDEAA;
+$logocolor: #CC8866;
 * {
     box-sizing: border-box;
     font-family: Helvetica, Arial, sans-serif;
@@ -19,6 +20,38 @@ body {
     margin-bottom: 10px;
 }
 
+.logo {
+    height: 100%;
+    width: 20%;
+    background-color: $logocolor; // padding-left: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 2s ease;
+    text-align: center;
+    cursor: context-menu;
+    span {
+        transition: transform 2s ease;
+        transform: translateX(-220px)
+    }
+    img {
+        height: 95%; // filter: FlipH;
+    }
+    &:hover {
+        img {
+            transition: transform 1.5s ease;
+            transform: translateX(-220px);
+        }
+        span {
+            transition: transform 1s ease;
+            transform: translateX(0px);
+        }
+    }
+}
+
 .nav_links {
     width: 100%;
     display: flex;
@@ -28,31 +61,68 @@ body {
     color: white; // cursor: pointer;
     cursor: context-menu;
     span {
+        border: 1px solid;
+        padding: 3px;
+        border-radius: 5px;
+        border-color: $marsRed;
         &:hover {
-            border: 1px solid;
+            border-color: white;
         }
     }
 }
 
-.content {
-    // padding-bottom: 15px;
-    width: 100%;
+.main_content {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; // background: red;
+    width: 100%;
+}
+
+div {
+    .ng-scope {
+        width: 100%;
+    }
+}
+
+.content {
+    margin: 0;
+    padding-top: 15px;
+    width: 100%;
+    min-width: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 .img_cntnr {
-    width: 90%; // background: green;
-    margin: 5px;
-    display: flex;
-    justify-content: center;
+    width: 80%;
+    // margin: 5px;
+    display: flex; // justify-content: center;
+    flex-direction: column;
     flex-wrap: wrap;
+    margin: 5px;
+    // &:hover {
+    //     transition: transform 0.5s ease;
+    //     transform: scale(1.4); // background: $marsRed;
+    //     padding: 1px;
+    //     border-radius: 13px;
+    //     img {
+    //         border-radius: 13px;
+    //         background: white;
+    //     }
+    // }
 }
 
 .rvr_img {
     width: auto;
-    max-width: 300px;
-    height: auto;
+    max-width: 100%;
     max-height: 300px;
+    height: auto;
+}
+footer{
+    hr{
+        margin: 10px;
+    }
+    text-align: center;
+    color: $marsRed;
+    font-weight: bold;
+    margin: 10px;
 }

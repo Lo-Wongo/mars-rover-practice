@@ -9,7 +9,8 @@ var paths = {
     jsSource: ['public/app/**/*.js'],
     cssSource: ['public/app/**/*.scss'],
     viewsSource: ['public/**/*.html'],
-    icoSource: ['public/**/*.ico']
+    icoSource: ['public/**/*.ico'],
+    imgSource: ['public/app/images/**.*']
 };
 
 gulp.task('deploy', function () {
@@ -42,12 +43,19 @@ gulp.task('css', function () {
 gulp.task('ico', function () {
     gulp.src(paths.icoSource)
     .pipe(gulp.dest('./dist'));
-})
+});
+
+gulp.task('img', function () {
+    gulp.src(paths.imgSource)
+    .pipe(gulp.dest('./dist/app/images'));
+});
 
 gulp.task('watch', function () {
     gulp.watch(paths.jsSource, ['js']);
     gulp.watch(paths.viewsSource, ['views']);
     gulp.watch(paths.cssSource, ['css']);
+    gulp.watch(paths.icoSource, ['ico']);
+    gulp.watch(paths.imgSource, ['img']);
 });
 
-gulp.task('default', ['js','views','css','watch']);
+gulp.task('default', ['js','views','css','ico','img','watch']);
