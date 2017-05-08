@@ -1,12 +1,13 @@
 angular.module('marsApp')
 .controller('marsCtrl' , function($scope, marsSrv){
-    $scope.x = ['Kyle','Britta','Cami','Madison'];
-
 
     $scope.getImages = function () {
         marsSrv.getImages().then(function (response) {
             console.log(response.data.photos);
             $scope.photos = response.data.photos;
+        }), function (response) {
+            console.log(response)
+            $scope.imageError = 'Martians must be interfering with the signal. Please come back later.'
         })
     };
     $scope.getWeather = function(){
@@ -15,7 +16,7 @@ angular.module('marsApp')
             $scope.weather = response.data;
         }, function (response) {
             console.log(response)
-            $scope.weather = 'Martians must be interfering with the signal. Come back later.'
+            $scope.weatherError = 'Martians must be interfering with the signal. Please come back later.'
         })
     }
     $scope.getWeather();
