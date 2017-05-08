@@ -1,0 +1,15 @@
+<div>
+    <h2>Opportunity</h2>
+    <h4 style="color:red">{{opportunityError}}</h4>
+
+    <div class="content">
+        <div>
+            <div class="img_cntnr" ng-repeat="photo in opportunity">
+                <h3>{{photo.rover.name}}: {{photo.earth_date}}</h3>
+                <img class="rvr_img" ng-src="{{photo.img_src}}" alt="">
+                <hr>
+            </div>
+
+        </div>
+    </div>
+</div>

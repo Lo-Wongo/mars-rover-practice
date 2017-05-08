@@ -12,7 +12,7 @@ angular.module('marsApp', ['ui.router'])
     })
     .state('opportunity',{
         url: '/opportunity',
-        template: "<h2>Opportunity</h2>"
+        templateUrl: './app/routes/opportunity/opportunityTemplate.html'
     })
     .state('weather',{
         url: '/weather',

@@ -1,13 +1,23 @@
 angular.module('marsApp')
 .controller('marsCtrl' , function($scope, marsSrv){
 
-    $scope.getImages = function () {
-        marsSrv.getImages().then(function (response) {
+    $scope.getCuriosty = function () {
+        marsSrv.getImages('curiosity').then(function (response) {
             console.log(response.data.photos);
             $scope.photos = response.data.photos;
         }, function (response) {
             console.log(response)
             $scope.imageError = 'Martians must be interfering with the signal. Please come back later.';
+        })
+    };
+
+    $scope.getOpportunity = function () {
+        marsSrv.getImages('opportunity').then(function (response) {
+            console.log(response.data.photos);
+            $scope.opportunity = response.data.photos;
+        }, function (response) {
+            console.log(response)
+            $scope.opportunityError = 'Martians must be interfering with the signal. Please come back later.';
         })
     };
     
@@ -21,6 +31,7 @@ angular.module('marsApp')
         })
     }
     $scope.getWeather();
-    $scope.getImages();
+    $scope.getCuriosty();
+    $scope.getOpportunity();
     
 });
