@@ -10,7 +10,7 @@ angular.module('marsApp', ['ui.router']).config(["$stateProvider", "$urlRouterPr
         templateUrl: './app/routes/curiosity/curiosityTemplate.html'
     }).state('opportunity', {
         url: '/opportunity',
-        template: "<h2>Opportunity</h2>"
+        templateUrl: './app/routes/opportunity/opportunityTemplate.html'
     }).state('weather', {
         url: '/weather',
         templateUrl: './app/routes/weather/weatherTemplate.html'
@@ -30,13 +30,23 @@ angular.module('marsApp').directive('headerDir', function () {
 
 angular.module('marsApp').controller('marsCtrl', ["$scope", "marsSrv", function ($scope, marsSrv) {
 
-    $scope.getImages = function () {
-        marsSrv.getImages().then(function (response) {
+    $scope.getCuriosty = function () {
+        marsSrv.getImages('curiosity').then(function (response) {
             console.log(response.data.photos);
             $scope.photos = response.data.photos;
         }, function (response) {
             console.log(response);
             $scope.imageError = 'Martians must be interfering with the signal. Please come back later.';
+        });
+    };
+
+    $scope.getOpportunity = function () {
+        marsSrv.getImages('opportunity').then(function (response) {
+            console.log(response.data.photos);
+            $scope.opportunity = response.data.photos;
+        }, function (response) {
+            console.log(response);
+            $scope.opportunityError = 'Martians must be interfering with the signal. Please come back later.';
         });
     };
 
@@ -50,7 +60,8 @@ angular.module('marsApp').controller('marsCtrl', ["$scope", "marsSrv", function 
         });
     };
     $scope.getWeather();
-    $scope.getImages();
+    $scope.getCuriosty();
+    $scope.getOpportunity();
 }]);
 'use strict';
 
@@ -63,15 +74,17 @@ angular.module('marsApp').directive('marsDir', function () {
 'use strict';
 
 angular.module('marsApp').service('marsSrv', ["$http", function ($http) {
-    var baseURL = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-5-4&api_key=';
-    var url2 = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-5-3&api_key=';
+    // const baseURL = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-5-4&api_key=';
+    var baseURL = 'https://api.nasa.gov/mars-photos/api/v1/rovers/';
+    var endURL = '/photos?earth_date=2017-5-4&api_key=';
+    // let url2 = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-5-3&api_key=';
     var key = 'bDTHnNfXlX9xa3CilBg85EbfUe4F2gNBx8EDnZHU';
     var weatherURL = 'https://marsweather.ingenology.com/v1/latest/';
 
     this.getImages = function (rover) {
         return $http({
             method: "GET",
-            url: baseURL + key
+            url: baseURL + rover + endURL + key
         });
     };
 
